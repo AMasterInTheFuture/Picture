@@ -1,24 +1,23 @@
 //
-//  ViewController.swift
+//  ScrollView.swift
 //  Picture
 //
-//  Created by 朱莹浩 on 5/6/16.
+//  Created by 朱莹浩 on 5/9/16.
 //  Copyright © 2016 朱莹浩. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController, UIScrollViewDelegate {
-
-    @IBOutlet weak var galleryScrollView: UIScrollView!
+class ScrollView: UIScrollView, UIScrollViewDelegate {
+    @IBOutlet weak var galleryScrollView: ScrollView!
     @IBOutlet weak var galleryPageControl: UIPageControl!
-    override func viewDidLoad() {
+    
+    func pictureGallery() {
         let imageW:CGFloat = self.galleryScrollView.frame.size.width
         let imageH:CGFloat = self.galleryScrollView.frame.size.height
         var imageY:CGFloat = 0
-        var totalCount: NSInteger = 4
+        var totalCount: NSInteger = 5
         for index in 0 ..< totalCount {
-            print(index)
             var imageView:UIImageView = UIImageView()
             let imageX: CGFloat = CGFloat(index) * imageW
             imageView.frame = CGRectMake(imageX, imageY, imageW, imageH)
@@ -36,11 +35,9 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         self.galleryScrollView.delegate = self
         
         self.galleryPageControl.numberOfPages = totalCount
-        self.addTimer()
     }
     func nextImage(sender:AnyObject!){//图片轮播；
         var page:Int = self.galleryPageControl.currentPage;
-        print(page)
         if(page == 4){   //循环；
             page = 0;
         }else{
@@ -58,21 +55,4 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         self.galleryPageControl.currentPage = page;
         
     }
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
-        self.removeTimer();
-    }
-    
-    
-    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        self.addTimer();
-    }
-
-    var timer:NSTimer!
-        func addTimer(){   //图片轮播的定时器；
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "nextImage:", userInfo: nil, repeats: true);
-    }
-    func removeTimer(){
-        self.timer.invalidate();
-    }
 }
-

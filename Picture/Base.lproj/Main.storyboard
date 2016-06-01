@@ -1,25 +1,51 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1808" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aCe-zp-6P4">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="nFY-iO-D5p">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aCe-zp-6P4" customClass="ViewController" customModule="Picture" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="swM-Zz-ktr"/>
+                        <viewControllerLayoutGuide type="bottom" id="aXn-mX-wCG"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="cJq-pp-Ph2">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="4tq-y7-vhJ">
+                                <rect key="frame" x="281" y="520" width="39" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="39" id="uo2-sQ-QO1"/>
+                                </constraints>
+                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </pageControl>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W1k-Of-Fcj">
+                                <rect key="frame" x="0.0" y="256" width="600" height="256"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aXn-mX-wCG" firstAttribute="top" secondItem="4tq-y7-vhJ" secondAttribute="bottom" constant="43" id="3iI-s0-Qaq"/>
+                            <constraint firstItem="W1k-Of-Fcj" firstAttribute="top" secondItem="swM-Zz-ktr" secondAttribute="bottom" constant="236" id="5Wa-Tc-6k7"/>
+                            <constraint firstItem="4tq-y7-vhJ" firstAttribute="top" secondItem="W1k-Of-Fcj" secondAttribute="bottom" constant="8" symbolic="YES" id="NNE-uD-Lwh"/>
+                            <constraint firstItem="W1k-Of-Fcj" firstAttribute="leading" secondItem="cJq-pp-Ph2" secondAttribute="leading" id="YE3-Xa-vxE"/>
+                            <constraint firstItem="W1k-Of-Fcj" firstAttribute="centerX" secondItem="4tq-y7-vhJ" secondAttribute="centerX" id="qXK-3p-kge"/>
+                            <constraint firstItem="4tq-y7-vhJ" firstAttribute="centerX" secondItem="cJq-pp-Ph2" secondAttribute="centerX" id="x3x-Lz-85x"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="galleryPageControl" destination="4tq-y7-vhJ" id="gw3-xC-eoX"/>
+                        <outlet property="galleryScrollView" destination="W1k-Of-Fcj" id="jJ5-8A-vfS"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b3n-h8-Od7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="387" y="460"/>
         </scene>
     </scenes>
 </document>
